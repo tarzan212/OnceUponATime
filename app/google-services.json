@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "978210251",
+    "firebase_url": "https://onceuponatime-47665.firebaseio.com",
+    "project_id": "onceuponatime-47665",
+    "storage_bucket": "onceuponatime-47665.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978210251:android:652ba59e83f071b0",
+        "android_client_info": {
+          "package_name": "com.example.user.onceuponatime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "978210251-9rnhiclq0cnvoag084hgvra57nutmvku.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.user.onceuponatime",
+            "certificate_hash": "942a0bc13311d736efd98a06cf2cb91fca010e61"
+          }
+        },
+        {
+          "client_id": "978210251-lhof7q6k96chodu31knafdbv92arhoah.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqNdCz5Cp-cBJ5FH3CPN6EQbjareNbCH8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "978210251-lhof7q6k96chodu31knafdbv92arhoah.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

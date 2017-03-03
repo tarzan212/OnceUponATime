@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">OnceUponATime</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+
+    <!-- Authentification strings -->
+
+    <string name="email_input">Email</string>
+    <string name="password_input">Password</string>
+    <string name="register">Register</string>
+
+    <string name="lost_password">Lost your password ? Click here.</string>
+    <string name="already_registeded">Already a member ? Click here to sign in !</string>
+
+    <string name="short_signin">Sign In</string>
+
+    <string name="link_register">Not a member ? Get registered now !</string>
+
+    <string name="no_email_entered">Please enter an email adress</string>
+    <string name="no_password_entered">Please enter a password</string>
+    <string name="login_success">Succesfully logged in !</string>
+    <string name="login_failed">Authentification failed. Please try again.</string>
+
+    <string name="logout_action">Logout</string>
+
+    <!-- Drawer strings -->
+
+    <string name="nav_profile">Profile</string>
+    <string name="nav_mystories">My Stories</string>
+    <string name="nav_notifications">Notifications</string>
+    <string name="nav_settings">Settings</string>
+
+    <string name="label_header_nbstories"> involving stories </string>
+    
+    <string-array name="nav_item_activity_titles">
+        <item>Profile</item>
+        <item>MyStories</item>
+        <item>Notifications</item>
+        <item>Settings</item>
+    </string-array>
+
+    <string name="drawer_opened">Drawer opened</string>
+    <string name="drawer_closed">Drawer closed</string>
+
+
+
+    <string name="dum_text">Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore
+        et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit
+        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa
+        qui officia deserunt mollit anim id est laborum.</string>
+
+
+</resources>
