@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
@@ -13,7 +13,7 @@
        android:layout_marginBottom="@dimen/margin_cardview"
        android:layout_marginLeft="@dimen/margin_cardview"
        android:layout_marginRight="@dimen/margin_cardview"
-       android:background="@color/lighGreen"
+
        app:cardCornerRadius="@dimen/cardview_corner_radius"
        >
 
@@ -38,8 +38,21 @@
                style="@style/TextAppearance.AppCompat.Body1"
                tools:text="@string/dum_text"/>
 
+
+
        </LinearLayout>
+
 
    </android.support.v7.widget.CardView>
 
-</FrameLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:src="@drawable/ic_stories_24dp"
+        app:layout_anchor="@id/main_cardview"
+        app:layout_anchorGravity="bottom|end"
+        android:backgroundTint="@color/lighGreen"
+        android:id="@+id/floatingActionButton" />
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,6 +1,7 @@
 package com.example.user.onceuponatime.activity;
 
 
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -13,8 +14,9 @@ import com.example.user.onceuponatime.databinding.ActivityAuthentificationBindin
 import com.example.user.onceuponatime.fragment.SignInFragment;
 import com.example.user.onceuponatime.fragment.SignUpFragment;
 
-public class AuthentificationActivity extends AppCompatActivity implements SignInFragment.SignInFragmentCallBack
-        ,SignUpFragment.SignUpFragmentCallBack{
+public class AuthentificationActivity extends AppCompatActivity implements SignInFragment.SignInFragmentCallBack,
+        SignUpFragment.SignUpFragmentCallBack
+        {
 
     private ActivityAuthentificationBinding activityAuthentificationBinding;
 
@@ -52,23 +54,24 @@ public class AuthentificationActivity extends AppCompatActivity implements SignI
     @Override
     public void onFragmentSwapRequested(int FragmentId) {
 
-        mFragmentManager = this.getSupportFragmentManager();
+        mFragmentManager = getSupportFragmentManager();
 
         FragmentTransaction fgTransaction = mFragmentManager.beginTransaction();
 
         switch(FragmentId) {
             case SIGNUP_FRAGMENT_ID:
-                if(!isFinishing()) {
-                    mSignUpFragment = (SignUpFragment) mFragmentManager.findFragmentByTag(SIGNUPFRAGMENT_TAG);
-                    if (mSignUpFragment == null) {
-                        mSignUpFragment = SignUpFragment.getInstance();
-                        fgTransaction.replace(R.id.fragment_container, mSignUpFragment, SIGNUPFRAGMENT_TAG);
-                    } else {
-                        fgTransaction.show(mSignUpFragment);
-                    }
-                    fgTransaction.addToBackStack(null);
-                    fgTransaction.commit();
+
+                mSignUpFragment = (SignUpFragment) mFragmentManager.findFragmentByTag(SIGNUPFRAGMENT_TAG);
+
+                if (mSignUpFragment == null) {
+                    mSignUpFragment = SignUpFragment.getInstance();
+                    Log.d(AuthentificationActivity.class.getSimpleName(),"*************"+mSignUpFragment.toString());
+                    fgTransaction.replace(R.id.fragment_container, mSignUpFragment, SIGNUPFRAGMENT_TAG);
+                } else {
+                    fgTransaction.show(mSignUpFragment);
                 }
+                fgTransaction.addToBackStack(null).commit();
+
                 break;
             case LOST_PWD_FRAGMENT_ID:
                 break;

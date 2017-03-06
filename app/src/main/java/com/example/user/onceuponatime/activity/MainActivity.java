@@ -1,6 +1,5 @@
 package com.example.user.onceuponatime.activity;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -18,8 +17,6 @@ import android.widget.TextView;
 import com.example.user.onceuponatime.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import org.antlr.v4.Tool;
 
 public class MainActivity extends AppCompatActivity {
 

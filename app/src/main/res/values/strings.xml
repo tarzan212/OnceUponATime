@@ -10,7 +10,7 @@
     <string name="password_input">Password</string>
     <string name="register">Register</string>
 
-    <string name="lost_password">Lost your password ? Click here.</string>
+    <string name="lost_password">Lost your password ?</string>
     <string name="already_registeded">Already a member ? Click here to sign in !</string>
 
     <string name="short_signin">Sign In</string>

@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -52,9 +52,7 @@ public class SignUpFragment extends Fragment {
 
 
     public static SignUpFragment getInstance() {
-        SignUpFragment fragment = new SignUpFragment();
-
-        return fragment;
+        return new SignUpFragment();
     }
 
     @Override
@@ -72,7 +70,13 @@ public class SignUpFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        signUpBinding = DataBindingUtil.setContentView(getActivity(),R.layout.fragment_sign_up);
+
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
 
         mEmailEdit = signUpBinding.emailSignup;
         mPasswordEdit = signUpBinding.passwordSignup;
@@ -99,15 +103,15 @@ public class SignUpFragment extends Fragment {
                 Toast.makeText(getContext(),"Hello",Toast.LENGTH_LONG).show();
             }
         });
-
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        signUpBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_sign_up,container,false);
+
         return inflater.inflate(R.layout.fragment_sign_up, container, false);
     }
 
