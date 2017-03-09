@@ -19,8 +19,9 @@
 
     <string name="no_email_entered">Please enter an email adress</string>
     <string name="no_password_entered">Please enter a password</string>
-    <string name="login_success">Succesfully logged in !</string>
-    <string name="login_failed">Authentification failed. Please try again.</string>
+    <string name="login_success">Successfully logged in !</string>
+    <string name="login_failed">Authentication failed. Please try again.</string>
+    <string name="logout_success">Successfully logged out</string>
 
     <string name="logout_action">Logout</string>
 

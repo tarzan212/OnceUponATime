@@ -42,27 +42,21 @@ public class SignUpFragment extends Fragment {
 
     private SignUpFragmentCallBack mCallBack;
 
-    public interface SignUpFragmentCallBack {
-        void onFragmentSwapRequested(int fragmentId);
-    }
-
     public SignUpFragment() {
     }
-
-
 
     public static SignUpFragment getInstance() {
         return new SignUpFragment();
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(Context context) {
+        super.onAttach(context);
 
         try {
-            mCallBack = (SignUpFragmentCallBack) activity;
+            mCallBack = (SignUpFragmentCallBack) context;
         } catch(ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implements the SignUpFragmentCallBack");
+            throw new ClassCastException(context.toString() + " must implements the SignUpFragmentCallBack");
         }
     }
 
@@ -77,6 +71,7 @@ public class SignUpFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        signUpBinding = DataBindingUtil.setContentView(getActivity(),R.layout.fragment_sign_up);
 
         mEmailEdit = signUpBinding.emailSignup;
         mPasswordEdit = signUpBinding.passwordSignup;
@@ -100,7 +95,7 @@ public class SignUpFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 onRegisterClicked();
-                Toast.makeText(getContext(),"Hello",Toast.LENGTH_LONG).show();
+
             }
         });
     }
@@ -110,17 +105,9 @@ public class SignUpFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        signUpBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_sign_up,container,false);
+
 
         return inflater.inflate(R.layout.fragment_sign_up, container, false);
-    }
-
-
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
     }
 
     private void onRegisterClicked() {
@@ -157,6 +144,10 @@ public class SignUpFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
 
+    }
+
+    public interface SignUpFragmentCallBack {
+        void onFragmentSwapRequested(int fragmentId);
     }
 
 

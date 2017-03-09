@@ -18,17 +18,12 @@ public class AuthentificationActivity extends AppCompatActivity implements SignI
         SignUpFragment.SignUpFragmentCallBack
         {
 
-    private ActivityAuthentificationBinding activityAuthentificationBinding;
-
     public static final String SIGNINFRAGMENT_TAG = "signinfragment";
     public static final String SIGNUPFRAGMENT_TAG = "signupfragment";
-
     public static final int SIGNIN_FRAGMENT_ID = 846464;
     public static final int SIGNUP_FRAGMENT_ID = 125478;
     public static final int LOST_PWD_FRAGMENT_ID = 85546;
-
-
-
+    private ActivityAuthentificationBinding activityAuthentificationBinding;
     private FragmentManager mFragmentManager;
     private SignInFragment mSignInFragment;
     private SignUpFragment mSignUpFragment;
@@ -56,7 +51,7 @@ public class AuthentificationActivity extends AppCompatActivity implements SignI
 
         mFragmentManager = getSupportFragmentManager();
 
-        FragmentTransaction fgTransaction = mFragmentManager.beginTransaction();
+        FragmentTransaction fgTransaction;
 
         switch(FragmentId) {
             case SIGNUP_FRAGMENT_ID:
@@ -65,9 +60,13 @@ public class AuthentificationActivity extends AppCompatActivity implements SignI
 
                 if (mSignUpFragment == null) {
                     mSignUpFragment = SignUpFragment.getInstance();
+
+                    fgTransaction = mFragmentManager.beginTransaction();
+
                     Log.d(AuthentificationActivity.class.getSimpleName(),"*************"+mSignUpFragment.toString());
                     fgTransaction.replace(R.id.fragment_container, mSignUpFragment, SIGNUPFRAGMENT_TAG);
                 } else {
+                    fgTransaction = mFragmentManager.beginTransaction();
                     fgTransaction.show(mSignUpFragment);
                 }
                 fgTransaction.addToBackStack(null).commit();

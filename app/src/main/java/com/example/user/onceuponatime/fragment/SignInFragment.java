@@ -43,12 +43,7 @@ public class SignInFragment extends Fragment {
 
 
 
-    public interface SignInFragmentCallBack {
-        void onFragmentSwapRequested(int FragmentId);
-    }
-
     public SignInFragment() {}
-
 
     public static SignInFragment getInstance() {
         return new SignInFragment();
@@ -62,7 +57,7 @@ public class SignInFragment extends Fragment {
         } catch(ClassCastException e) {
             throw new ClassCastException(context.toString() + " must implements SignInCallaback");
         }
-        Toast.makeText(context,mCallBack.toString(),Toast.LENGTH_LONG).show();
+
     }
 
     @Override
@@ -78,6 +73,7 @@ public class SignInFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         signInBinding = DataBindingUtil.setContentView(getActivity(), R.layout.fragment_sign_in);
+
         mEmailEdit = signInBinding.emailSignin;
         mPasswordEdit = signInBinding.passwordSignin;
         mProgressBar = signInBinding.progressBarSignIn;
@@ -150,7 +146,6 @@ public class SignInFragment extends Fragment {
         });
     }
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -161,5 +156,9 @@ public class SignInFragment extends Fragment {
     public void onResume() {
         super.onResume();
         mProgressBar.setVisibility(View.GONE);
+    }
+
+    public interface SignInFragmentCallBack {
+        void onFragmentSwapRequested(int FragmentId);
     }
 }
