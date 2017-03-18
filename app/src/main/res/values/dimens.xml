@@ -21,4 +21,8 @@
     <dimen name="cardview_padding">16dp</dimen>
     <dimen name="details_margin">5dp</dimen>
 
+    <!-- PostStory activity -->
+
+    <dimen name="padding_switch">5dp</dimen>
+
 </resources>

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
@@ -23,10 +24,16 @@ import com.example.user.onceuponatime.R;
 import com.example.user.onceuponatime.activity.AuthentificationActivity;
 import com.example.user.onceuponatime.activity.MainActivity;
 import com.example.user.onceuponatime.databinding.FragmentSignInBinding;
+import com.example.user.onceuponatime.other.UserHelper;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
 
 public class SignInFragment extends Fragment {
@@ -38,6 +45,7 @@ public class SignInFragment extends Fragment {
     private ProgressBar mProgressBar;
 
     private FirebaseAuth mAuth;
+
 
     private SignInFragmentCallBack mCallBack;
 
@@ -113,7 +121,7 @@ public class SignInFragment extends Fragment {
     }
 
     private void signInAction() {
-        String email = mEmailEdit.getText().toString().trim();
+        final String email = mEmailEdit.getText().toString().trim();
         final String password = mPasswordEdit.getText().toString().trim();
 
         if(TextUtils.isEmpty(email)) {
@@ -130,8 +138,10 @@ public class SignInFragment extends Fragment {
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+
                 mProgressBar.setVisibility(View.GONE);
                 if(task.isSuccessful()) {
+
                     Snackbar.make(mCoordinatorLayout,getString(R.string.login_success),Snackbar.LENGTH_LONG).show();
                     startActivity(new Intent(getActivity(), MainActivity.class));
                     getActivity().finish();
@@ -145,6 +155,8 @@ public class SignInFragment extends Fragment {
             }
         });
     }
+
+
 
     @Nullable
     @Override

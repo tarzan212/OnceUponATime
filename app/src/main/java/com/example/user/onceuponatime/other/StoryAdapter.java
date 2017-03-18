@@ -20,6 +20,8 @@ import java.util.List;
 
 public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHolder>{
 
+    public StoryAdapter() {};
+
     @Override
     public StoryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();

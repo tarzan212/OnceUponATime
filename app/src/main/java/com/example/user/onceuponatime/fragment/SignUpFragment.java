@@ -23,10 +23,14 @@ import com.example.user.onceuponatime.R;
 import com.example.user.onceuponatime.activity.AuthentificationActivity;
 import com.example.user.onceuponatime.activity.MainActivity;
 import com.example.user.onceuponatime.databinding.FragmentSignUpBinding;
+import com.example.user.onceuponatime.other.UserHelper;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class SignUpFragment extends Fragment {
@@ -39,6 +43,8 @@ public class SignUpFragment extends Fragment {
     private CoordinatorLayout mCoordinatorLayout;
 
     private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
+    private DatabaseReference mUserDatabase;
 
     private SignUpFragmentCallBack mCallBack;
 
@@ -111,7 +117,7 @@ public class SignUpFragment extends Fragment {
     }
 
     private void onRegisterClicked() {
-        String email = mEmailEdit.getText().toString().trim();
+        final String email = mEmailEdit.getText().toString().trim();
         final String pwd = mPasswordEdit.getText().toString().trim();
 
         if(TextUtils.isEmpty(email)) {
@@ -128,6 +134,7 @@ public class SignUpFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
+                    addUserToDatabase(email);
                     startActivity(new Intent(getActivity(), MainActivity.class));
                     getActivity().finish();
                 }
@@ -137,6 +144,17 @@ public class SignUpFragment extends Fragment {
                 }
             }
         });
+
+    }
+
+    private void addUserToDatabase(String email) {
+
+        final String user = mAuth.getCurrentUser().getUid();
+
+        UserHelper userHelper = new UserHelper(user,email,email,null,null);
+        mUserDatabase = FirebaseDatabase.getInstance().getReference();
+        mUserDatabase.child("users").child(user).setValue(userHelper);
+
 
     }
 

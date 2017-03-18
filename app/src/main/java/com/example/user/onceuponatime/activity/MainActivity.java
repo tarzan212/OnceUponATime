@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.user.onceuponatime.R;
+import com.example.user.onceuponatime.other.StoryAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -40,7 +41,9 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private TextView nameField,storiesCountField;
     private Toolbar mToolbar;
+
     private RecyclerView mRecycler;
+    private StoryAdapter mStoryAdapter;
 
     private String[] activityTitles;
 
@@ -78,6 +81,18 @@ public class MainActivity extends AppCompatActivity {
         storiesCountField = (TextView) navHeader.findViewById(R.id.count_stories_involved_header);
 
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
+
+        //start poststoryActivity on floattingactionbutton click
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent postStoryIntent = new Intent(MainActivity.this,PostStory.class);
+
+
+                startActivity(postStoryIntent);
+
+            }
+        });
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
             @Override
@@ -129,6 +144,10 @@ public class MainActivity extends AppCompatActivity {
         }
         super.onBackPressed();
     }
+
+
+
+
     //TODO 1 Regler le probleme des fragments -- ALMOST COMPLETE MAINLY CAUSED BY DATABINDING
     //TODO 2 Recup infos de firebase pr articles
     //TODO 3 Utiliser un recyclerview et un cardview pour afficher les histoires

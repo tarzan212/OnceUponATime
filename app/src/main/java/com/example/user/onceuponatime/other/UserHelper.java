@@ -2,6 +2,7 @@ package com.example.user.onceuponatime.other;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.format.DateUtils;
 import android.widget.TextView;
 
 import java.util.Map;
@@ -17,18 +18,22 @@ public class UserHelper {
     private String email;
     private long date;
     private Map<String,String> stories;
-    private Map<String,Map<String,String>> invStories;
+    private Map<String,Map<String,String>> invStories; //Contains both the previous story reference plus a plus a paragRef
 
-    public UserHelper() {};
+    public UserHelper() {}
 
     public UserHelper(@NonNull String userid, String usnme, @NonNull String email,
-                      long date,Map<String,String> stories,Map<String,Map<String,String>> involving) {
+                      long date,Map<String,String> stories, Map<String,Map<String,String>> involving) {
         this.userID = userid;
         this.username = usnme;
         this.email = email;
         this.date = date;
         this.stories = stories;
         this.invStories = involving;
+    }
+    public UserHelper(@NonNull String userid, String usnme, @NonNull String email,
+                      Map<String,String> stories, Map<String,Map<String,String>> involving) {
+        this(userid,usnme,email,0,stories,involving);
     }
 
     public String getUserID() {

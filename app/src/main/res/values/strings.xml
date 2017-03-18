@@ -33,7 +33,7 @@
     <string name="nav_settings">Settings</string>
 
     <string name="label_header_nbstories"> involving stories </string>
-    
+
     <string-array name="nav_item_activity_titles">
         <item>Profile</item>
         <item>MyStories</item>
@@ -43,6 +43,13 @@
 
     <string name="drawer_opened">Drawer opened</string>
     <string name="drawer_closed">Drawer closed</string>
+
+    <!-- Post story activity -->
+
+    <string name="titleInput">Title</string>
+    <string name="storyBodyInput">Introduction or first paragraph</string>
+    <string name="privacyStorySwitch">Private</string>
+    <string name="postButton">Post it !</string>
 
 
 
